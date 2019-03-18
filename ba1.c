@@ -52,31 +52,31 @@ int main(){
     printf("enter number of process and resources\n");
     scanf("%d %d",&n,&m);
     printf("enter the available resources\n");
-    for(i=0;i<m;i++){
+    for(i=0;i<m;i++)
         scanf("%d",&available[i]);
-    }
+
    
    
     printf("enter the allocated matrix\n");
-    for(i=0;i<n;i++){
-        for(j=0;j<m;j++){
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
             scanf("%d",&alloc[i][j]);
-
-        }
     }
 
     printf("enter the max matrix\n");
-    for(i=0;i<n;i++){
-        for(j=0;j<m;j++){
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
             scanf("%d",&max[i][j]);
-
-        }
     }
     printf("the need matrix is\n");
 
-    for(i=0;i<n;i++){
+    for(i=0;i<n;i++)
+    {
         printf("\n");
-        for(j=0;j<m;j++){
+        for(j=0;j<m;j++)
+        {
             need[i][j] = max[i][j] - alloc[i][j];
             printf("%2d",need[i][j]);
         }
@@ -92,23 +92,25 @@ int main(){
     for(i=0;i<m;i++)
         scanf("%d",&req[i]);
    
-    for(i=0;i<m;i++){
-        if(req[i] > need[proc][i] || req[i] > available[i]){
+    for(i=0;i<m;i++)
+    {
+        if(req[i] > need[proc][i] || req[i] > available[i])
+        {
             printf("cannot be executed\n");
             break;
         }
     }
-    if(i==m){
-        for(i=0;i<m;i++){
+    if(i==m)
+    {
+        for(i=0;i<m;i++)
+        {
             available[i] = available[i] - req[i];
             need[proc][i] = need[proc][i] - req[i];
             alloc[proc][i] = alloc[proc][i] + req[i];
         }
-    checksafe(n,m);
+        checksafe(n,m);
 
-    }
-   
-
+    }   
 
 }
 
